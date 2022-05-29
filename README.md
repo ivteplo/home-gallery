@@ -22,6 +22,23 @@ git clone https://github.com/ivteplo/home-gallery
 cd home-gallery
 ```
 
-3. Install dependencies (TODO)
+3. Install dependencies
 
-4. Happy hacking! 🎉
+```bash
+go get
+```
+
+4. Build the server
+
+```bash
+go build cmd/server/main.go
+```
+
+5. Run the built server
+
+```bash
+./main # if on Linux or macOS
+./main.exe # if on Windows
+```
+
+6. Happy hacking! 🎉
