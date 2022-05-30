@@ -25,7 +25,7 @@ cd home-gallery
 3. Install dependencies
 
 ```bash
-go get
+go mod tidy
 ```
 
 4. Build the server

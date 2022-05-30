@@ -29,6 +29,8 @@ func main() {
 	}
 
 	server := api.CreateAPIServer(config)
+	defer server.Exit()
+
 	log.Print("Listening on ", config.BindAddress)
 	log.Fatal(server.Start())
 }
