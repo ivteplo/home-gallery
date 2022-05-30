@@ -38,7 +38,7 @@ func (server *APIServer) Exit() {
 }
 
 func (server *APIServer) configureRouter() {
-	server.router.HandleFunc("/upload", server.handleUpload()).Methods("POST")
+	server.router.HandleFunc("/api/upload", server.handleUpload()).Methods("POST")
 }
 
 func (server *APIServer) handleUpload() http.HandlerFunc {
