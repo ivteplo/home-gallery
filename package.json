@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@ivteplo/utilities.css": "^1.0.0",
+    "@solid-primitives/i18n": "^1.1.0",
+    "solid-app-router": "^0.3.3",
     "solid-js": "^1.4.2"
   }
 }
