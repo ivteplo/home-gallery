@@ -2,7 +2,7 @@
 
 package store
 
-import "fmt"
+import "os"
 
 type Store struct {
 	config *Config
@@ -15,7 +15,10 @@ func CreateStore(config *Config) *Store {
 }
 
 func (store *Store) Open() error {
-	fmt.Println("Store path: ", store.config.Path)
+	if err := os.MkdirAll(store.config.Path, os.ModePerm); err != nil {
+		return err
+	}
+
 	return nil
 }
 
