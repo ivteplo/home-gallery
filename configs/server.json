@@ -1,6 +1,6 @@
 {
-    "bindAddress": ":8080",
-    "store": {
-        "path": "./gallery/"
-    }
+  "bindAddress": ":8080",
+  "store": {
+    "path": "./gallery/"
+  }
 }

@@ -1,12 +1,13 @@
 # Home Gallery
+
 Self-hosted alternative for Google Photos
 
 ## Development
 
 ### Prerequisites
 
-- Go
-- Node.js and npm
+-   Go
+-   Node.js and npm
 
 ### Setup
 
