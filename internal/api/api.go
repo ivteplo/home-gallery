@@ -3,10 +3,10 @@
 package api
 
 import (
-	"io"
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/ivteplo/home-gallery/internal/helpers"
 	"github.com/ivteplo/home-gallery/internal/store"
 )
 
@@ -19,7 +19,7 @@ type APIServer struct {
 func CreateAPIServer(config *Config) *APIServer {
 	return &APIServer{
 		config: config,
-		router: mux.NewRouter(),
+		router: mux.NewRouter().StrictSlash(false),
 	}
 }
 
@@ -38,12 +38,38 @@ func (server *APIServer) Exit() {
 }
 
 func (server *APIServer) configureRouter() {
-	server.router.HandleFunc("/hello", server.handleHello())
+	server.router.HandleFunc("/upload", server.handleUpload()).Methods("POST")
 }
 
-func (server *APIServer) handleHello() http.HandlerFunc {
+func (server *APIServer) handleUpload() http.HandlerFunc {
 	return func(writer http.ResponseWriter, request *http.Request) {
-		io.WriteString(writer, "Hello")
+		var maxFileSize int64 = 128 << 20 // 128 mb
+		request.ParseMultipartForm(maxFileSize)
+
+		file, fileHeader, err := request.FormFile("uploadedFile")
+
+		if err == nil {
+			defer file.Close()
+			err = server.store.SaveFile(file, fileHeader)
+		}
+
+		if err == nil {
+			writer.WriteHeader(200)
+
+			helpers.OutputJSONTo(writer, APIResponse[string]{
+				Type:    "success",
+				Message: "Uploaded successfully",
+				Data:    "uploaded-successfully",
+			})
+		} else {
+			writer.WriteHeader(400)
+
+			helpers.OutputJSONTo(writer, APIResponse[string]{
+				Type:    "error",
+				Message: err.Error(),
+				Data:    "could-not-upload",
+			})
+		}
 	}
 }
 

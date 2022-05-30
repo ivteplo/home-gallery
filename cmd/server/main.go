@@ -23,7 +23,7 @@ func main() {
 
 	config := api.CreateConfig()
 
-	err := helpers.DecodeJSONFile(configPath, &config)
+	err := helpers.ParseJSONFile(configPath, &config)
 	if err != nil {
 		log.Fatal(err)
 	}

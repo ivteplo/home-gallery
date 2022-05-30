@@ -5,10 +5,12 @@ package helpers
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
+	"net/http"
 	"os"
 )
 
-func DecodeJSONFile[OutputStruct any](path string, output *OutputStruct) error {
+func ParseJSONFile[OutputStruct any](path string, output *OutputStruct) error {
 	jsonFile, err := os.Open(path)
 	if err != nil {
 		return err
@@ -20,4 +22,12 @@ func DecodeJSONFile[OutputStruct any](path string, output *OutputStruct) error {
 	json.Unmarshal(byteValue, output)
 
 	return nil
+}
+
+func OutputJSONTo[Struct any](writer http.ResponseWriter, object Struct) {
+	writer.Header().Set("Content-Type", "application/json")
+
+	if err := json.NewEncoder(writer).Encode(object); err != nil {
+		log.Fatal(err)
+	}
 }
