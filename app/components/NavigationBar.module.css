@@ -1,0 +1,36 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+.NavigationBar {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0.5rem;
+}
+
+.NavigationBarButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  flex-grow: 1;
+
+  text-decoration: none;
+  font-weight: 500; /* medium */
+  color: var(--foreground);
+  background-color: var(--background);
+
+  max-width: 7rem;
+
+  border-radius: var(--border-radius);
+}
+
+.NavigationBarButton > span {
+  margin-top: 0.25rem;
+}
+
+.NavigationBarButton.current {
+  background-color: var(--primary);
+}

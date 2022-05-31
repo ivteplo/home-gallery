@@ -3,7 +3,7 @@
 import * as en from "./en.json"
 
 const translations = {
-  en,
+  en: {...en},
 }
 
 export default translations
