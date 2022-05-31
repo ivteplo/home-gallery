@@ -23,7 +23,11 @@ const NavigationBarButton: Component<NavigationBarButtonProps> = ({ tab }) => {
   const isCurrentTab = useMatch(() => tab.route)
 
   return (
-    <Link href={tab.route} class={styles.NavigationBarButton} classList={{ [styles.current]: Boolean(isCurrentTab()) }}>
+    <Link
+      href={tab.route}
+      class={styles.NavigationBarButton}
+      classList={{ [styles.current]: Boolean(isCurrentTab()) }}
+    >
       {tab.icon()}
       <span>{tab.name}</span>
     </Link>
@@ -33,7 +37,9 @@ const NavigationBarButton: Component<NavigationBarButtonProps> = ({ tab }) => {
 const NavigationBar: Component<NavigationBarProps> = (props) => {
   return (
     <nav class={styles.NavigationBar}>
-      <For each={props.tabs}>{(tab, _) => <NavigationBarButton tab={tab} />}</For>
+      <For each={props.tabs}>
+        {(tab, _) => <NavigationBarButton tab={tab} />}
+      </For>
     </nav>
   )
 }
