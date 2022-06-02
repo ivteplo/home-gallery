@@ -3,16 +3,11 @@
 import { useI18n } from "@solid-primitives/i18n"
 import { Component } from "solid-js"
 import Page from "../components/Page"
-import Text from "../components/Text"
 
 const Gallery: Component = () => {
   const [t, _] = useI18n()
 
-  return (
-    <Page>
-      <Text textStyle="largeTitle">{t("gallery")}</Text>
-    </Page>
-  )
+  return <Page pageTitle={t("gallery")}></Page>
 }
 
 export default Gallery

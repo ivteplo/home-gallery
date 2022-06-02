@@ -3,12 +3,26 @@
 import classNames from "classnames"
 import { Component, ComponentProps } from "solid-js"
 import styles from "./Page.module.css"
+import Text from "./Text"
 
-type PageProps = ComponentProps<"div"> & {}
+type PageProps = ComponentProps<"div"> & {
+  pageTitle?: string
+}
 
-const Page: Component<PageProps> = ({ class: className, ...props }) => {
+const Page: Component<PageProps> = ({
+  class: className,
+  pageTitle,
+  children,
+  ...props
+}) => {
   const classes = classNames(className, styles.Page, "column", "fill")
-  return <div class={classes} {...props} />
+
+  return (
+    <div class={classes} {...props}>
+      {pageTitle && <Text textStyle="largeTitle">{pageTitle}</Text>}
+      {children}
+    </div>
+  )
 }
 
 export default Page
