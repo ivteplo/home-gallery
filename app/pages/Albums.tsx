@@ -2,13 +2,14 @@
 
 import { useI18n } from "@solid-primitives/i18n"
 import { Component } from "solid-js"
+import Text from "../components/Text"
 
 const Albums: Component = () => {
   const [t, _] = useI18n()
 
   return (
     <div>
-      <h1>{t("albums")}</h1>
+      <Text textStyle="largeTitle">{t("albums")}</Text>
     </div>
   )
 }

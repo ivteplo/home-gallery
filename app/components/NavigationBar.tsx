@@ -4,6 +4,7 @@ import { Link, useMatch } from "solid-app-router"
 import { Component, For, JSX } from "solid-js"
 
 import styles from "./NavigationBar.module.css"
+import Text from "./Text"
 
 type TabInfo = {
   name: string
@@ -30,7 +31,7 @@ const NavigationBarButton: Component<NavigationBarButtonProps> = ({ tab }) => {
       classList={{ [styles.current]: Boolean(isCurrentTab()) }}
     >
       {tab.icon()}
-      <span>{tab.name}</span>
+      <Text textStyle="button">{tab.name}</Text>
     </Link>
   )
 }
