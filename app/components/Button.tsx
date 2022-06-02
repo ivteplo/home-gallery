@@ -20,13 +20,21 @@ const Button: Component<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const classes = classNames(className, styles.Button, styles[buttonStyle], "row", "cursor-pointer")
+  const classes = classNames(
+    className,
+    styles.Button,
+    styles[buttonStyle],
+    "row",
+    "cursor-pointer"
+  )
 
-  return <button class={classes} {...props}>
-    {icon}
-    {label && <Text textStyle="button">{label}</Text>}
-    {children}
-  </button>
+  return (
+    <button class={classes} {...props}>
+      {icon}
+      {label && <Text textStyle="button">{label}</Text>}
+      {children}
+    </button>
+  )
 }
 
 export default Button

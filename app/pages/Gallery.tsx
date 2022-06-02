@@ -17,7 +17,11 @@ const Gallery: Component = () => {
     <Page pageTitle={t("gallery")}>
       <Section class="fill text-center items-center">
         <Text textStyle="paragraph">{t("noPhotosYet")}</Text>
-        <Button buttonStyle="primary" icon={<UploadIcon />} label={t("upload")} />
+        <Button
+          buttonStyle="primary"
+          icon={<UploadIcon />}
+          label={t("upload")}
+        />
       </Section>
     </Page>
   )
