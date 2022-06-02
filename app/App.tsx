@@ -13,7 +13,7 @@ const i18nContext = createI18nContext(translations, "en")
 
 const App: Component = () => {
   return (
-    <div class="App column fill">
+    <div class="App column fill not-selectable">
       <I18nContext.Provider value={i18nContext}>
         <Router>
           <Content />

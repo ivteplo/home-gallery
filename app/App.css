@@ -19,6 +19,5 @@
   --default-font: "Work Sans", var(--system-font);
 
   -webkit-tap-highlight-color: transparent;
-
   font-family: var(--default-font);
 }
