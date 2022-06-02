@@ -2,5 +2,6 @@
   "gallery": "Gallery",
   "upload": "Upload",
   "albums": "Albums",
-  "settings": "Settings"
+  "settings": "Settings",
+  "noPhotosYet": "There are no photos yet. Click the button below to upload."
 }

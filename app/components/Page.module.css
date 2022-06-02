@@ -3,3 +3,7 @@
 .Page {
   padding: 2rem 1rem;
 }
+
+.Page > *:not(:first-child) {
+  margin-top: 2rem;
+}

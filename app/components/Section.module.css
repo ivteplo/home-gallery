@@ -1,0 +1,5 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+.Section > *:not(:first-child) {
+  margin-top: 1rem;
+}

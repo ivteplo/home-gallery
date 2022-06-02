@@ -1,0 +1,28 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+.Button {
+  font-size: 1rem;
+  font-family: inherit;
+
+  outline: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  border: 0.0625rem solid var(--outline);
+  border-radius: var(--border-radius);
+  box-shadow: 0.0625rem 0.0625rem 0 var(--outline);
+}
+
+.Button > *:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.Button.primary {
+  background-color: var(--primary);
+  color: var(--foreground);
+}
+
+.Button.default {
+  background-color: var(--background);
+  color: var(--foreground);
+}
