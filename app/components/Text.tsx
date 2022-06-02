@@ -1,5 +1,6 @@
 // Copyright (c) 2022 Ivan Teplov
 
+import classNames from "classnames"
 import { Component, ComponentProps } from "solid-js"
 import { Dynamic } from "solid-js/web"
 
@@ -27,18 +28,15 @@ const getTagFor = (textStyle: TextStyle): string => {
 
 const Text: Component<TextProps> = ({
   textStyle = "text",
-  class: className = "",
+  class: className,
   children,
   ...props
 }) => {
   const tag = getTagFor(textStyle)
+  const classes = classNames(className, styles[textStyle])
 
   return (
-    <Dynamic
-      component={tag}
-      class={className + " " + styles[textStyle]}
-      {...props}
-    >
+    <Dynamic component={tag} class={classes} {...props}>
       {children}
     </Dynamic>
   )

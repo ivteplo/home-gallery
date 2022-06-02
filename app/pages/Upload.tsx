@@ -2,15 +2,16 @@
 
 import { useI18n } from "@solid-primitives/i18n"
 import { Component } from "solid-js"
+import Page from "../components/Page"
 import Text from "../components/Text"
 
 const Upload: Component = () => {
   const [t, _] = useI18n()
 
   return (
-    <div>
+    <Page>
       <Text textStyle="largeTitle">{t("upload")}</Text>
-    </div>
+    </Page>
   )
 }
 
