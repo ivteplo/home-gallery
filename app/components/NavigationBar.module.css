@@ -4,7 +4,18 @@
   display: flex;
   justify-content: space-between;
 
+  background: var(--background);
+
   padding: 0.5rem;
+}
+
+.NavigationBar.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border-top: 0.0625rem solid var(--outline);
 }
 
 .NavigationBarButton {
@@ -25,6 +36,8 @@
   max-width: 7rem;
 
   border-radius: var(--border-radius);
+
+  transition: background-color var(--transition-duration) var(--easing);
 }
 
 .NavigationBarButton > span {

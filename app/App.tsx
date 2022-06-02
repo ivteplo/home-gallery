@@ -13,11 +13,13 @@ const i18nContext = createI18nContext(translations, "en")
 
 const App: Component = () => {
   return (
-    <I18nContext.Provider value={i18nContext}>
-      <Router>
-        <Content />
-      </Router>
-    </I18nContext.Provider>
+    <div class="App column fill">
+      <I18nContext.Provider value={i18nContext}>
+        <Router>
+          <Content />
+        </Router>
+      </I18nContext.Provider>
+    </div>
   )
 }
 

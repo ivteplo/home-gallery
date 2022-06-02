@@ -50,7 +50,7 @@ const Content: Component = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/" element={<Gallery />} />
       </Routes>
-      <NavigationBar tabs={tabs()} />
+      <NavigationBar tabs={tabs()} fixed />
     </div>
   )
 }

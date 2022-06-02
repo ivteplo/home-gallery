@@ -17,6 +17,7 @@ type NavigationBarButtonProps = {
 
 type NavigationBarProps = {
   tabs: TabInfo[]
+  fixed?: boolean
 }
 
 const NavigationBarButton: Component<NavigationBarButtonProps> = ({ tab }) => {
@@ -36,7 +37,7 @@ const NavigationBarButton: Component<NavigationBarButtonProps> = ({ tab }) => {
 
 const NavigationBar: Component<NavigationBarProps> = (props) => {
   return (
-    <nav class={styles.NavigationBar}>
+    <nav class={styles.NavigationBar} classList={{ [styles.fixed]: !!props.fixed }}>
       <For each={props.tabs}>
         {(tab, _) => <NavigationBarButton tab={tab} />}
       </For>

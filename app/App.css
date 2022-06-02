@@ -1,8 +1,13 @@
 /* Copyright (c) 2022 Ivan Teplov */
 
-:root {
+.App {
   --foreground: #000;
   --background: #fff;
   --primary: #fac3b2;
+  --outline: var(--foreground);
   --border-radius: 0.4375rem;
+  --transition-duration: 0.3s;
+  --easing: ease-out;
+
+  -webkit-tap-highlight-color: transparent;
 }
