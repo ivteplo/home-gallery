@@ -7,7 +7,7 @@ import styles from "./Text.module.css"
 
 type TextStyle = "largeTitle" | "title" | "button" | "paragraph" | "text"
 
-type TextProps = ComponentProps<'span'> & {
+type TextProps = ComponentProps<"span"> & {
   textStyle: TextStyle
 }
 
@@ -25,12 +25,23 @@ const getTagFor = (textStyle: TextStyle): string => {
   }
 }
 
-const Text: Component<TextProps> = ({ textStyle = 'text', class: className = "", children, ...props }) => {
+const Text: Component<TextProps> = ({
+  textStyle = "text",
+  class: className = "",
+  children,
+  ...props
+}) => {
   const tag = getTagFor(textStyle)
 
-  return <Dynamic component={tag} class={className + " " + styles[textStyle]} {...props}>
-    {children}
-  </Dynamic>
+  return (
+    <Dynamic
+      component={tag}
+      class={className + " " + styles[textStyle]}
+      {...props}
+    >
+      {children}
+    </Dynamic>
+  )
 }
 
 export default Text
