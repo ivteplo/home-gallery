@@ -22,7 +22,9 @@ const AlbumList: Component<AlbumListProps> = ({
   return (
     <div class={classes} {...props}>
       <For each={albums}>
-        {(album) => <AlbumListItem album={album} class={styles.AlbumListItem} />}
+        {(album) => (
+          <AlbumListItem album={album} class={styles.AlbumListItem} />
+        )}
       </For>
     </div>
   )

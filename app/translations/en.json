@@ -3,7 +3,12 @@
   "upload": "Upload",
   "albums": "Albums",
   "settings": "Settings",
+  "media": "Media",
   "noPhotosYet": "There are no photos yet. Click the button below to upload.",
   "uploadMedia": "Upload media",
-  "uploadPageText": "Click the button below to upload new photos or videos to the cloud."
+  "uploadPageText": "Click the button below to upload new photos or videos to the cloud.",
+  "cacheImagesAndVideos": "Cache images and videos",
+  "cacheBigFiles": "Cache big files (>10 mb)",
+  "createAlbumsForEachYear": "Create albums for each year",
+  "enableFavorites": "Enable favorites"
 }

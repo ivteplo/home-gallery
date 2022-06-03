@@ -1,0 +1,49 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+.Checkbox {
+  width: 2rem;
+  height: 1rem;
+
+  border: 0.0625rem solid var(--outline);
+  border-radius: 0.5em;
+
+  position: relative;
+
+  background-color: var(--background);
+  transition: background-color var(--transition-duration) var(--easing);
+}
+
+.Checkbox.checked {
+  background-color: var(--primary);
+}
+
+.Checkbox::before {
+  content: "";
+
+  width: 0.75rem;
+  height: 0.75rem;
+
+  position: absolute;
+
+  top: 0.125rem;
+  left: 0.125rem;
+
+  border-radius: 50%;
+  background-color: var(--foreground);
+
+  transition: left var(--transition-duration) var(--easing);
+}
+
+.Checkbox.checked::before {
+  left: calc(100% - 0.125rem - 0.75rem);
+}
+
+/* Make the checkbox be available only for screen readers */
+.NativeCheckbox {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: fixed;
+  top: -100vh;
+  left: -100vw;
+}

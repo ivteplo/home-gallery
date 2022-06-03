@@ -11,18 +11,22 @@ import Album from "../models/Album"
 
 const getMockAlbum: () => Album = () => ({
   cover: mockAlbumCover,
-  title: "2022"
+  title: "2022",
 })
 
 const Albums: Component = () => {
   const [t, _] = useI18n()
   const [albums, setAlbums] = createSignal(
-    Array(4).fill(null).map(() => getMockAlbum())
+    Array(4)
+      .fill(null)
+      .map(() => getMockAlbum())
   )
 
-  return <Page pageTitle={t("albums")}>
-    <AlbumList albums={albums()} />
-  </Page>
+  return (
+    <Page pageTitle={t("albums")}>
+      <AlbumList albums={albums()} />
+    </Page>
+  )
 }
 
 export default Albums

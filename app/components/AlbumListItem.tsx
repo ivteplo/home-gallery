@@ -24,7 +24,9 @@ const AlbumListItem: Component<AlbumListItemProps> = ({
     <div class={classes} {...props}>
       <img src={album.cover} alt={alternativeText} />
       <div class={styles.Overlay} />
-      <Text textStyle="button" class={styles.AlbumTitle}>{album.title}</Text>
+      <Text textStyle="button" class={styles.AlbumTitle}>
+        {album.title}
+      </Text>
     </div>
   )
 }

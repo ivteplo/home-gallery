@@ -9,7 +9,7 @@ import styles from "./Text.module.css"
 type TextStyle = "largeTitle" | "title" | "button" | "paragraph" | "text"
 
 type TextProps = ComponentProps<"span"> & {
-  textStyle: TextStyle
+  textStyle?: TextStyle
 }
 
 const getTagFor = (textStyle: TextStyle): string => {

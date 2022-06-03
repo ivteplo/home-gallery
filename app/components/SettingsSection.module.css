@@ -1,0 +1,13 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+/* .SettingsSection {} */
+
+.ContentWrapper {
+  padding: 0.75rem;
+  border: 0.0625rem solid var(--outline);
+  border-radius: var(--border-radius);
+}
+
+.ContentWrapper > *:not(:first-child) {
+  margin-top: 1rem;
+}
