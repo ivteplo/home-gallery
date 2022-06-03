@@ -3,5 +3,7 @@
   "upload": "Upload",
   "albums": "Albums",
   "settings": "Settings",
-  "noPhotosYet": "There are no photos yet. Click the button below to upload."
+  "noPhotosYet": "There are no photos yet. Click the button below to upload.",
+  "uploadMedia": "Upload media",
+  "uploadPageText": "Click the button below to upload new photos or videos to the cloud."
 }
