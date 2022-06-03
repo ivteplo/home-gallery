@@ -15,7 +15,7 @@ const Upload: Component = () => {
 
   return (
     <Page pageTitle={t("upload")}>
-      <Section class="fill text-center items-center">
+      <Section class="fill text-center justify-center items-center">
         <Text textStyle="paragraph">{t("uploadPageText")}</Text>
         <Button
           buttonStyle="primary"

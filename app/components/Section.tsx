@@ -8,7 +8,7 @@ import styles from "./Section.module.css"
 type SectionProps = ComponentProps<"section">
 
 const Section: Component<SectionProps> = ({ class: className, ...props }) => {
-  const classes = classNames(className, styles.Section, "column")
+  const classes = classNames(styles.Section, "column", className)
 
   return <section class={classes} {...props} />
 }

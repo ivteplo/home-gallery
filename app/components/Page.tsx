@@ -15,7 +15,7 @@ const Page: Component<PageProps> = ({
   children,
   ...props
 }) => {
-  const classes = classNames(className, styles.Page, "column", "fill")
+  const classes = classNames(styles.Page, "column", "fill", className)
 
   return (
     <div class={classes} {...props}>

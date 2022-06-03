@@ -1,0 +1,59 @@
+/* Copyright (c) 2022 Ivan Teplov */
+
+.AlbumListItem {
+  position: relative;
+  aspect-ratio: 1;
+
+  width: 100%;
+
+  border-radius: var(--border-radius);
+  border: 0.0625rem solid var(--outline);
+  overflow: hidden;
+}
+
+.AlbumListItem > img {
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.Overlay {
+  position: absolute;
+  z-index: 1;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Check if linear gradients are supported */
+@supports (background: linear-gradient(0deg, #000 0%, #000 100%)) {
+  .Overlay {
+    background-color: transparent;
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.65) 100%
+    );
+  }
+}
+
+.AlbumTitle {
+  position: absolute;
+  z-index: 2;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+
+  color: white;
+  text-shadow: 0.0625rem 0.0625rem 0 var(--outline);
+}

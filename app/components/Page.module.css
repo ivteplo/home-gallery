@@ -1,7 +1,7 @@
 /* Copyright (c) 2022 Ivan Teplov */
 
 .Page {
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 5rem;
 }
 
 .Page > *:not(:first-child) {

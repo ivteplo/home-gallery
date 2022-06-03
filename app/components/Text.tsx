@@ -33,7 +33,7 @@ const Text: Component<TextProps> = ({
   ...props
 }) => {
   const tag = getTagFor(textStyle)
-  const classes = classNames(className, styles[textStyle])
+  const classes = classNames(styles[textStyle], className)
 
   return (
     <Dynamic component={tag} class={classes} {...props}>
