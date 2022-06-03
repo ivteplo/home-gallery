@@ -14,13 +14,13 @@ const Upload: Component = () => {
   const [t, _] = useI18n()
 
   return (
-    <Page pageTitle={t("upload")}>
+    <Page pageTitle={t("uploadPage.title")}>
       <Section class="fill text-center justify-center items-center">
-        <Text textStyle="paragraph">{t("uploadPageText")}</Text>
+        <Text textStyle="paragraph">{t("uploadPage.message")}</Text>
         <Button
           buttonStyle="primary"
           icon={<UploadIcon />}
-          label={t("uploadMedia")}
+          label={t("uploadPage.uploadMediaButtonText")}
         />
       </Section>
     </Page>

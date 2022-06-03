@@ -21,22 +21,22 @@ const Content: Component = () => {
 
   const [tabs, _setTabs] = createSignal([
     {
-      name: t("gallery"),
+      name: t("navigationBar.galleryButtonText"),
       icon: () => <GalleryIcon />,
       route: "/",
     },
     {
-      name: t("upload"),
+      name: t("navigationBar.uploadButtonText"),
       icon: () => <UploadIcon />,
       route: "/upload",
     },
     {
-      name: t("albums"),
+      name: t("navigationBar.albumsButtonText"),
       icon: () => <AlbumsIcon />,
       route: "/albums",
     },
     {
-      name: t("settings"),
+      name: t("navigationBar.settingsButtonText"),
       icon: () => <SettingsIcon />,
       route: "/settings",
     },

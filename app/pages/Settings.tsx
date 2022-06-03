@@ -10,29 +10,42 @@ import Text from "../components/Text"
 
 const Settings: Component = () => {
   const [t, _] = useI18n()
+  console.log(t)
 
   return (
-    <Page pageTitle={t("settings")}>
-      <SettingsSection sectionTitle={t("media")}>
+    <Page pageTitle={t("settingsPage.title")}>
+      <SettingsSection sectionTitle={t("settingsPage.sections.media.title")}>
         <div class="row">
-          <Text>{t("cacheImagesAndVideos")}</Text>
+          <Text>
+            {t(
+              "settingsPage.sections.media.settings.cacheImagesAndVideos.name"
+            )}
+          </Text>
           <div class="fill" />
           <Checkbox checked />
         </div>
         <div class="row">
-          <Text>{t("cacheBigFiles")}</Text>
+          <Text>
+            {t("settingsPage.sections.media.settings.cacheBigFiles.name")}
+          </Text>
           <div class="fill" />
           <Checkbox />
         </div>
       </SettingsSection>
-      <SettingsSection sectionTitle={t("albums")}>
+      <SettingsSection sectionTitle={t("settingsPage.sections.albums.title")}>
         <div class="row">
-          <Text>{t("createAlbumsForEachYear")}</Text>
+          <Text>
+            {t(
+              "settingsPage.sections.albums.settings.createAlbumsForEachYear.name"
+            )}
+          </Text>
           <div class="fill" />
           <Checkbox checked />
         </div>
         <div class="row">
-          <Text>{t("enableFavorites")}</Text>
+          <Text>
+            {t("settingsPage.sections.albums.settings.enableFavorites.name")}
+          </Text>
           <div class="fill" />
           <Checkbox checked />
         </div>

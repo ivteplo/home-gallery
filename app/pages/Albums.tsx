@@ -23,7 +23,7 @@ const Albums: Component = () => {
   )
 
   return (
-    <Page pageTitle={t("albums")}>
+    <Page pageTitle={t("albumsPage.title")}>
       <AlbumList albums={albums()} />
     </Page>
   )

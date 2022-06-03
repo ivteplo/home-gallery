@@ -1,14 +1,54 @@
 {
-  "gallery": "Gallery",
-  "upload": "Upload",
-  "albums": "Albums",
-  "settings": "Settings",
-  "media": "Media",
-  "noPhotosYet": "There are no photos yet. Click the button below to upload.",
-  "uploadMedia": "Upload media",
-  "uploadPageText": "Click the button below to upload new photos or videos to the cloud.",
-  "cacheImagesAndVideos": "Cache images and videos",
-  "cacheBigFiles": "Cache big files (>10 mb)",
-  "createAlbumsForEachYear": "Create albums for each year",
-  "enableFavorites": "Enable favorites"
+  "navigationBar": {
+    "galleryButtonText": "Gallery",
+    "uploadButtonText": "Upload",
+    "albumsButtonText": "Albums",
+    "settingsButtonText": "Settings"
+  },
+
+  "galleryPage": {
+    "title": "Gallery",
+    "emptyGallery": {
+      "shownMessage": "There are no photos yet. Click the button below to upload.",
+      "uploadButtonText": "Upload"
+    }
+  },
+
+  "uploadPage": {
+    "title": "Upload",
+    "message": "Click the button below to upload new photos or videos to the cloud.",
+    "uploadMediaButtonText": "Upload media"
+  },
+
+  "albumsPage": {
+    "title": "Albums"
+  },
+
+  "settingsPage": {
+    "title": "Settings",
+    "sections": {
+      "media": {
+        "title": "Media",
+        "settings": {
+          "cacheImagesAndVideos": {
+            "name": "Cache images and videos"
+          },
+          "cacheBigFiles": {
+            "name": "Cache big files (>10 mb)"
+          }
+        }
+      },
+      "albums": {
+        "title": "Albums",
+        "settings": {
+          "createAlbumsForEachYear": {
+            "name": "Create albums for each year"
+          },
+          "enableFavorites": {
+            "name": "Enable favorites"
+          }
+        }
+      }
+    }
+  }
 }

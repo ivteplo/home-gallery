@@ -14,13 +14,15 @@ const Gallery: Component = () => {
   const [t, _] = useI18n()
 
   return (
-    <Page pageTitle={t("gallery")}>
+    <Page pageTitle={t("galleryPage.title")}>
       <Section class="fill text-center justify-center items-center">
-        <Text textStyle="paragraph">{t("noPhotosYet")}</Text>
+        <Text textStyle="paragraph">
+          {t("galleryPage.emptyGallery.shownMessage")}
+        </Text>
         <Button
           buttonStyle="primary"
           icon={<UploadIcon />}
-          label={t("upload")}
+          label={t("galleryPage.emptyGallery.uploadButtonText")}
         />
       </Section>
     </Page>
