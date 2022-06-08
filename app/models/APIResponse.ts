@@ -1,7 +1,7 @@
 // Copyright (c) 2022 Ivan Teplov
 
 type APIResponse<Data = string> = {
-  type: string
+  type: "success" | "error"
   message: string
   data: Data
 }
