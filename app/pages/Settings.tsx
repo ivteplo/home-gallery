@@ -10,7 +10,6 @@ import Text from "../components/Text"
 
 const Settings: Component = () => {
   const [t, _] = useI18n()
-  console.log(t)
 
   return (
     <Page pageTitle={t("settingsPage.title")}>
