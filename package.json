@@ -2,12 +2,11 @@
   "name": "home-gallery",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "start": "vite",
+    "build": "vite build",
     "dev": "vite",
     "check-types": "tsc --noEmit",
-    "build": "vite build",
-    "serve": "vite preview",
     "format": "prettier -w ."
   },
   "license": "Apache-2.0",
