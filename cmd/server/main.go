@@ -3,34 +3,34 @@
 package main
 
 import (
-	"flag"
-	"log"
+    "flag"
+    "log"
 
-	"github.com/ivteplo/home-gallery/internal/api"
-	"github.com/ivteplo/home-gallery/internal/helpers"
+    "github.com/ivteplo/home-gallery/internal/api"
+    "github.com/ivteplo/home-gallery/internal/helpers"
 )
 
 var (
-	configPath string
+    configPath string
 )
 
 func init() {
-	flag.StringVar(&configPath, "config-path", "configs/server.json", "path to configuration file")
+    flag.StringVar(&configPath, "config-path", "configs/server.json", "path to configuration file")
 }
 
 func main() {
-	flag.Parse()
+    flag.Parse()
 
-	config := api.CreateConfig()
+    config := api.CreateConfig()
 
-	err := helpers.ParseJSONFile(configPath, &config)
-	if err != nil {
-		log.Fatal(err)
-	}
+    err := helpers.ParseJSONFile(configPath, &config)
+    if err != nil {
+        log.Fatal(err)
+    }
 
-	server := api.CreateAPIServer(config)
-	defer server.Exit()
+    server := api.CreateAPIServer(config)
+    defer server.Exit()
 
-	log.Print("Listening on ", config.BindAddress)
-	log.Fatal(server.Start())
+    log.Print("Listening on ", config.BindAddress)
+    log.Fatal(server.Start())
 }
