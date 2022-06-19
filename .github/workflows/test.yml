@@ -1,4 +1,4 @@
-name: Test Frontend App
+name: Test
 
 on:
     push:
@@ -20,8 +20,15 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: ${{ matrix.node-version }}
+            - name: Use Golang
+              uses: actions/setup-go@v3
+              with:
+                  go-version-file: go.mod
             - name: Install dependencies
               run: npm ci
-            - run: npm run check-types
-            - run: npm run build
-            - run: npm test --if-present
+            - name: Run TypeScript type checking
+              run: npm run check-types
+            - name: Build the app
+              run: npm run build
+            - name: Run tests (if there are any)
+              run: npm test --if-present
