@@ -29,17 +29,10 @@ cd home-gallery
 go mod tidy
 ```
 
-4. Build the server
+4. Start the development server
 
 ```bash
-go build cmd/server/main.go
+npm run dev
 ```
 
-5. Run the built server
-
-```bash
-./main # if on Linux or macOS
-./main.exe # if on Windows
-```
-
-6. Happy hacking! 🎉
+5. Happy hacking! 🎉
