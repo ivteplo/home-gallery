@@ -3,82 +3,107 @@
 package api
 
 import (
-	"net/http"
+    "net/http"
 
-	"github.com/gorilla/mux"
-	"github.com/ivteplo/home-gallery/internal/helpers"
-	"github.com/ivteplo/home-gallery/internal/store"
+    "github.com/gorilla/mux"
+    "github.com/ivteplo/home-gallery/internal/helpers"
+    "github.com/ivteplo/home-gallery/internal/store"
 )
 
 type APIServer struct {
-	config *Config
-	router *mux.Router
-	store  *store.Store
+    config *Config
+    router *mux.Router
+    store  *store.Store
 }
 
 func CreateAPIServer(config *Config) *APIServer {
-	return &APIServer{
-		config: config,
-		router: mux.NewRouter().StrictSlash(false),
-	}
+    return &APIServer{
+        config: config,
+        router: mux.NewRouter().StrictSlash(false),
+    }
 }
 
 func (server *APIServer) Start() error {
-	server.configureRouter()
+    server.configureRouter()
 
-	if err := server.configureStore(); err != nil {
-		return err
-	}
+    if err := server.configureStore(); err != nil {
+        return err
+    }
 
-	return http.ListenAndServe(server.config.BindAddress, server.router)
+    return http.ListenAndServe(server.config.BindAddress, server.router)
 }
 
 func (server *APIServer) Exit() {
-	server.store.Close()
+    server.store.Close()
 }
 
 func (server *APIServer) configureRouter() {
-	server.router.HandleFunc("/api/upload", server.handleUpload()).Methods("POST")
+    server.router.HandleFunc("/api/upload", server.handleUpload()).Methods("POST")
+    server.router.HandleFunc("/api/media/list", server.handleListMedia()).Methods("GET")
 }
 
 func (server *APIServer) handleUpload() http.HandlerFunc {
-	return func(writer http.ResponseWriter, request *http.Request) {
-		var maxFileSize int64 = 128 << 20 // 128 mb
-		request.ParseMultipartForm(maxFileSize)
+    return func(writer http.ResponseWriter, request *http.Request) {
+        var maxFileSize int64 = 128 << 20 // 128 mb
+        request.ParseMultipartForm(maxFileSize)
 
-		file, fileHeader, err := request.FormFile("uploadedFile")
+        file, fileHeader, err := request.FormFile("uploadedFile")
 
-		if err == nil {
-			defer file.Close()
-			err = server.store.SaveFile(file, fileHeader)
-		}
+        if err == nil {
+            defer file.Close()
+            err = server.store.SaveFile(file, fileHeader)
+        }
 
-		if err == nil {
-			writer.WriteHeader(200)
+        if err == nil {
+            writer.WriteHeader(200)
 
-			helpers.OutputJSONTo(writer, APIResponse[string]{
-				Type:    "success",
-				Message: "Uploaded successfully",
-				Data:    "uploaded-successfully",
-			})
-		} else {
-			writer.WriteHeader(400)
+            helpers.OutputJSONTo(writer, APIResponse[string]{
+                Type:    "success",
+                Message: "Uploaded successfully",
+                Data:    "messages.uploaded-successfully",
+            })
+        } else {
+            writer.WriteHeader(400)
 
-			helpers.OutputJSONTo(writer, APIResponse[string]{
-				Type:    "error",
-				Message: err.Error(),
-				Data:    "could-not-upload",
-			})
-		}
-	}
+            helpers.OutputJSONTo(writer, APIResponse[string]{
+                Type:    "error",
+                Message: err.Error(),
+                Data:    "messages.could-not-upload",
+            })
+        }
+    }
+}
+
+func (server *APIServer) handleListMedia() http.HandlerFunc {
+    return func(writer http.ResponseWriter, request *http.Request) {
+        files, err := server.store.ListMedia()
+
+        if err == nil {
+            writer.WriteHeader(200)
+
+            helpers.OutputJSONTo(writer, APIResponse[[]string]{
+                Type:    "success",
+                Message: "Success",
+                Data:    files,
+            })
+        } else {
+            writer.WriteHeader(500)
+
+            helpers.OutputJSONTo(writer, APIResponse[string]{
+                Type:    "error",
+                Message: err.Error(),
+                Data:    "messages.could-not-get-media",
+            })
+        }
+    }
 }
 
 func (server *APIServer) configureStore() error {
-	server.store = store.CreateStore(&server.config.Store)
+    server.store = store.CreateStore(&server.config.Store)
 
-	if err := server.store.Open(); err != nil {
-		return err
-	}
+    if err := server.store.Open(); err != nil {
+        return err
+    }
 
-	return nil
+    return nil
 }
