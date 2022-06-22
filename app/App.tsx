@@ -4,6 +4,8 @@ import { createI18nContext, I18nContext } from "@solid-primitives/i18n"
 import { Router } from "solid-app-router"
 import { Component } from "solid-js"
 
+import { FileUploadingContextProvider } from "./contexts/FileUploadingContext"
+
 import translations from "./translations"
 import Content from "./Content"
 
@@ -16,7 +18,9 @@ const App: Component = () => {
     <div class="App column fill not-selectable">
       <I18nContext.Provider value={i18nContext}>
         <Router>
-          <Content />
+          <FileUploadingContextProvider>
+            <Content />
+          </FileUploadingContextProvider>
         </Router>
       </I18nContext.Provider>
     </div>

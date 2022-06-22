@@ -10,6 +10,7 @@ const Gallery = lazy(() => import("./pages/Gallery"))
 const Upload = lazy(() => import("./pages/Upload"))
 const Albums = lazy(() => import("./pages/Albums"))
 const Settings = lazy(() => import("./pages/Settings"))
+const Uploading = lazy(() => import("./pages/Uploading"))
 
 import GalleryIcon from "./assets/icons/GalleryIcon"
 import UploadIcon from "./assets/icons/UploadIcon"
@@ -46,6 +47,7 @@ const Content: Component = () => {
     <div class="column fill">
       <Routes>
         <Route path="/upload" element={<Upload />} />
+        <Route path="/uploading" element={<Uploading />} />
         <Route path="/albums" element={<Albums />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/" element={<Gallery />} />
